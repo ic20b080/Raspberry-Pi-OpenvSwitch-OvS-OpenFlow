@@ -63,7 +63,7 @@ mkdir -p /usr/local/etc/openvswitch
 ovsdb-tool create /usr/local/etc/openvswitch/conf.db vswitchd/vswitch.ovsschema
 
 ### Create Superscript:
-sudo nano /etc/init.d/superscript
+nano /etc/init.d/superscript
 
 **with following content:**
 
@@ -82,6 +82,57 @@ ovs-vswitchd --pidfile --detach
 chmod +x /etc/init.d/superscript
 
 /etc/init.d/superscript
+
+## Configure OpenvSwitch
+
+### Check OpenvSwitch:
+ovs-vsctl show
+
+### Add Bridge:
+ovs-vsctl add-br br0
+
+### Add Ports:
+ovs-vsctl add-port br0 eth0
+
+ovs-vsctl add-port br0 eth1
+
+ovs-vsctl add-port br0 eth2
+
+ovs-vsctl add-port br0 eth3
+
+### Disable DHCP client
+service dhcpcd stop
+
+### Remove IP-Addresses on phsical interfaces:
+I had an IP-Address assigned on eth0:
+
+ifconfig eth0 0
+
+### Add IP-Address to br0 bridge interface:
+I have an 192.168.1.x network
+
+ipconfig br0 192.168.1.99 netmask 255.255.255.0 up
+
+### Setup routes
+I have an 192.168.1.x network therefor I need these routes
+
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+
+0.0.0.0         192.168.1.1     0.0.0.0         UG    0      0        0 br0
+
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 br0
+
+
+I only had the second route so I added the other with
+
+route add -net 0.0.0.0 gw 192.168.1.1 netmask 0.0.0.0 dev br0
+
+### Add Controller:
+ovs-vsctl set-controller br0 tcp:192.168.1.110:6633
+
+I had to set a specific OpenFlow Version
+ovs-vsctl set bridge br0 protocols=OpenFlow10
+
 
 First References:
 
