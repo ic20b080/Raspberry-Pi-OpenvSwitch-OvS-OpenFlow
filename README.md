@@ -131,10 +131,11 @@ route add -net 0.0.0.0 gw 192.168.1.1 netmask 0.0.0.0 dev br0
 ovs-vsctl set-controller br0 tcp:192.168.1.110:6633
 
 I had to set a specific OpenFlow Version
+
 ovs-vsctl set bridge br0 protocols=OpenFlow10
 
 
-First References:
+## First References:
 
 https://sumitrokgp.wordpress.com/2017/05/18/converting-a-raspberry-pi-to-a-openflow-switch/
 https://gist.github.com/exelban/c932d9c42094050b466eb6ba91956dbf#file-open-vswitch-raspberry-pi
