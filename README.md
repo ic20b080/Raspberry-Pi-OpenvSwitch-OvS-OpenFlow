@@ -111,7 +111,7 @@ ifconfig eth0 0
 ### Add IP-Address to br0 bridge interface:
 I have an 192.168.1.x network
 
-ipconfig br0 192.168.1.99 netmask 255.255.255.0 up
+ifconfig br0 192.168.1.99 netmask 255.255.255.0 up
 
 ### Setup routes
 I have an 192.168.1.x network therefor I need these routes
