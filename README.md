@@ -22,18 +22,10 @@ tar -xvzf openvswitch-2.16.2.tar.gz
 ### Create Directories:
 cd /usr/local
 
-mkdir var
-
-cd var/
-
-mkdir run
-
-cd run/
-
-mkdir openvswitch
+mkdir -p var/run/openvswitch
 
 ### Go back to the OpenvSwitch dir downloaded earlier:
-cd ../../../..
+cd ../..
 
 cd home/pi/openvswitch-2.16.2
 
