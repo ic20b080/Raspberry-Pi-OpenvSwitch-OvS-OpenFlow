@@ -2,9 +2,7 @@
 This repo documents the installation of OpenvSwitch aka OvS on Raspberry Pi Zero W and Pi Zero 2 Hardware
 
 ## Operating System:
-Raspberry Pi OS Bullseye
-
-all updates as of 07.01.2022
+Raspberry Pi OS Bullseye 32 bit from 28th Jan 2022
 
 ## How to install:
 
@@ -16,10 +14,10 @@ apt-get install libssl-dev automake autoconf gcc uml-utilities libtool build-ess
 
 apt-get install apparmor dns-root-data libssl-dev libunbound8 raspberrypi-kernel-headers snapd squashfs-tools unbound unbound-anchor
 
-### Download and Extract OpenvSwitch (Version 2.16.1 in this case):
-wget https://www.openvswitch.org/releases/openvswitch-2.16.1.tar.gz
+### Download and Extract OpenvSwitch (Version 2.16.2 in this case):
+wget https://www.openvswitch.org/releases/openvswitch-2.16.2.tar.gz
 
-tar -xvzf openvswitch-2.16.1.tar.gz
+tar -xvzf openvswitch-2.16.2.tar.gz
 
 ### Create Directories:
 cd /usr/local
@@ -37,7 +35,7 @@ mkdir openvswitch
 ### Go back to the OpenvSwitch dir downloaded earlier:
 cd ../../../..
 
-cd home/pi/openvswitch-2.16.1
+cd home/pi/openvswitch-2.16.2
 
 ### Install OpenvSwitch:
 ./configure
@@ -49,7 +47,9 @@ make -j4 install
 ### Reboot and turn on module:
 reboot
 
-cd openvswitch-2.16.1/datapath/linux/
+sudo su
+
+cd openvswitch-2.16.2/datapath/linux/
 
 modprobe openvswitch
 
