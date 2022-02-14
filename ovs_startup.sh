@@ -25,21 +25,21 @@ else
   echo eth0 no ipv6
 fi
 
-if [[ $(ip addr show dev eth1 | sed -e's^.*inet6 \([^ ]*\)\/.*S/\1/;t;d') ]]; then
+if [[ $(ifconfig eth1 |  awk '/inet6/{print $2}') ]]; then
   echo eth1 has ipv6
   ifconfig eth1 inet6 del $(ifconfig eth1 |  awk '/inet6/{print $2}')/$(ifconfig eth1 |  awk '/inet6/{print $4}')
 else
   echo eth1 no ipv6
 fi
 
-if [[ $(ip addr show dev eth2 | sed -e's^.*inet6 \([^ ]*\)\/.*S/\1/;t;d') ]]; then
+if [[ $(ifconfig eth2 |  awk '/inet6/{print $2}') ]]; then
   echo eth2 has ipv6
   ifconfig eth2 inet6 del $(ifconfig eth2 |  awk '/inet6/{print $2}')/$(ifconfig eth2 |  awk '/inet6/{print $4}')
 else
   echo eth2 no ipv6
 fi
 
-if [[ $(ip addr show dev eth3 | sed -e's^.*inet6 \([^ ]*\)\/.*S/\1/;t;d') ]]; then
+if [[ $(ifconfig eth3 |  awk '/inet6/{print $2}') ]]; then
   echo eth3 has ipv6
   ifconfig eth3 inet6 del $(ifconfig eth3 |  awk '/inet6/{print $2}')/$(ifconfig eth3 |  awk '/inet6/{print $4}')
 else
