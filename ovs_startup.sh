@@ -25,9 +25,9 @@ if [[ $(ifconfig eth0 | awk '/inet6/{print $2}') ]]; then
 
   echo "${#arrayIP0[@]}"
 
-  for element in "${arrayIP0[@]}"
+  for index in "${!arrayIP0[@]}"
   do
-    ifconfig eth0 inet6 del "${arrayIP0[$index]}/${arrayMask0[$index]}"
+    ifconfig eth0 inet6 del "${arrayIP0[index]}/${arrayMask0[index]}"
   done
 else
   echo eth0 no ipv6
@@ -40,9 +40,9 @@ if [[ $(ifconfig eth1 | awk '/inet6/{print $2}') ]]; then
 
   echo "${#arrayIP1[@]}"
 
-  for element in "${arrayIP1[@]}"
+  for index in "${!arrayIP1[@]}"
   do
-    ifconfig eth1 inet6 del "${arrayIP1[$index]}/${arrayMask1[$index]}"
+    ifconfig eth1 inet6 del "${arrayIP1[index]}/${arrayMask1[index]}"
   done
 else
   echo eth1 no ipv6
@@ -55,9 +55,9 @@ if [[ $(ifconfig eth2 | awk '/inet6/{print $2}') ]]; then
 
   echo "${#arrayIP2[@]}"
 
-  for element in "${arrayIP2[@]}"
+  for index in "${!arrayIP2[@]}"
   do
-    ifconfig eth2 inet6 del "${arrayIP2[$index]}/${arrayMask2[$index]}"
+    ifconfig eth2 inet6 del "${arrayIP2[index]}/${arrayMask2[index]}"
   done
 else
   echo eth2 no ipv6
@@ -70,9 +70,9 @@ if [[ $(ifconfig eth3 | awk '/inet6/{print $2}') ]]; then
 
   echo "${#arrayIP3[@]}"
 
-  for element in "${arrayIP3[@]}"
+  for index in "${!arrayIP3[@]}"
   do
-    ifconfig eth3 inet6 del "${arrayIP3[$index]}/${arrayMask3[$index]}"
+    ifconfig eth3 inet6 del "${arrayIP3[index]}/${arrayMask3[index]}"
   done
 else
   echo eth3 no ipv6
