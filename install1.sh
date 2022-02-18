@@ -26,5 +26,8 @@ echo install openvswitch
 make -j4
 make -j4 install
 
+echo create service folder
+mkdir -p ~/.config/systemd/user
+
 echo reboot system
 reboot
