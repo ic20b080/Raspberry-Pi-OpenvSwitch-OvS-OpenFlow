@@ -1,0 +1,11 @@
+[Unit]
+Description=boot ovs
+DefaultDependencies=no
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/ovs_startup.sh
+
+[Install]
+WantedBy=default.target
