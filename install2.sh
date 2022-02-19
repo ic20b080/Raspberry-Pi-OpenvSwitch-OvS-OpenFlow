@@ -35,3 +35,6 @@ echo set up ovs to run at startup
 sudo mv boot_pi.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable boot_pi.service
+
+echo reboot
+reboot
