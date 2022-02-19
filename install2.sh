@@ -28,6 +28,3 @@ sudo ovs-vsctl add-port br0 eth3
 echo add openflow controller
 sudo ovs-vsctl set-controller br0 tcp:192.168.8.18:6633
 sudo ovs-vsctl set bridge br0 protocols=OpenFlow14
-
-echo reboot
-reboot
