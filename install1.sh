@@ -23,6 +23,8 @@ sudo ./configure
 sudo make -j4
 sudo make -j4 install
 
+cd ..
+
 echo make files executable
 sudo chmod +x superscript
 sudo chmod +x boot_pi.service
