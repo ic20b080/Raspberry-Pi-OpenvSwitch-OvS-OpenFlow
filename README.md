@@ -5,9 +5,10 @@ This repo documents the installation of OpenvSwitch aka OvS on Raspberry Pi Zero
 Raspberry Pi OS Bullseye 32 bit from 28th Jan 2022
 
 ## How to install (script solution):
-1. Execute the install1.sh script
-2. Execute the install2.sh script (after install1.sh rebooted the system)
-3. OvS should run on every startup
+1. Make install1.sh executable with the following commmand: sudo chmod +x install1.sh
+2. Execute the install1.sh script. Navigate to the folder with the file and execute it with sudo ./install1.sh
+3. Execute the install2.sh script (after install1.sh rebooted the system). Navigate to the folder with the file and execute it with sudo ./install2.sh
+4. OvS should run on every startup
 
 
 ## How to install (step by step):
