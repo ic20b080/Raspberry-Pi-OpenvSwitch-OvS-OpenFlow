@@ -33,9 +33,5 @@ sudo chmod +x install2.sh
 echo move superscript
 sudo mv superscript /etc/init.d
 
-echo create service folder and move boot script
-sudo mkdir -p ~/.config/systemd/user
-sudo mv boot_pi.service ~/.config/systemd/user
-
 echo reboot system
 reboot
