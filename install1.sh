@@ -23,6 +23,11 @@ sudo ./configure
 sudo make -j4
 sudo make -j4 install
 
+echo make files executable
+sudo chmod +x superscript
+sudo chmod +x boot_pi.service
+sudo chmod +x install2.sh
+
 echo move superscript
 sudo mv superscript /etc/init.d
 
