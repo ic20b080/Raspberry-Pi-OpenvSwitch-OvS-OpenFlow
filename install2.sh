@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo install service
-cd ~/.config/systemd/user/
-systemctl --user enable boot_pi.service
-cd ../../..
-
 echo check ovs
 cd openvswitch-2.16.2/datapath/linux/
 sudo modprobe openvswitch
