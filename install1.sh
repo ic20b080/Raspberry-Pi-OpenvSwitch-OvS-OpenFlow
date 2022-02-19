@@ -26,6 +26,7 @@ sudo make -j4 install
 cd ..
 
 echo make files executable
+sudo chmod +x ovs_startup.sh
 sudo chmod +x superscript
 sudo chmod +x boot_pi.service
 sudo chmod +x install2.sh
