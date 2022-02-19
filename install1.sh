@@ -1,11 +1,8 @@
 #!/bin/bash
 
-echo enter superuser mode
-sudo su
-
 echo install required packages
-apt-get update
-apt-get install -y libssl-dev automake autoconf gcc uml-utilities libtool build-essential pkg-config
+sudo apt-get update
+sudo apt-get install -y libssl-dev automake autoconf gcc uml-utilities libtool build-essential pkg-config
 
 echo download openvswitch
 wget https://www.openvswitch.org/releases/openvswitch-2.16.2.tar.gz
@@ -22,9 +19,9 @@ cd ../..
 cd home/pi/openvswitch-2.16.2
 
 echo install openvswitch
-./configure
-make -j4
-make -j4 install
+sudo ./configure
+sudo make -j4
+sudo make -j4 install
 
 echo create service folder
 mkdir -p ~/.config/systemd/user
