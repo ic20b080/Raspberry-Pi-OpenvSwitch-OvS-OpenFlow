@@ -12,7 +12,7 @@ tar -xvzf openvswitch-2.16.2.tar.gz
 
 echo create folder
 cd /usr/local
-mkdir -p var/run/openvswitch
+sudo mkdir -p var/run/openvswitch
 
 echo go to openvswitch folder
 cd ../..
