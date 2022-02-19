@@ -23,8 +23,12 @@ sudo ./configure
 sudo make -j4
 sudo make -j4 install
 
-echo create service folder
-mkdir -p ~/.config/systemd/user
+echo move superscript
+sudo mv superscript /etc/init.d
+
+echo create service folder and move boot script
+sudo mkdir -p ~/.config/systemd/user
+sudo mv boot_pi.service ~/.config/systemd/user
 
 echo reboot system
 reboot
