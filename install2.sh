@@ -28,3 +28,10 @@ sudo ovs-vsctl add-port br0 eth3
 echo add openflow controller
 sudo ovs-vsctl set-controller br0 tcp:192.168.8.18:6633
 sudo ovs-vsctl set bridge br0 protocols=OpenFlow14
+
+cd ..
+
+echo set up ovs to run at startup
+sudo mv boot_pi.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable boot_pi.service
