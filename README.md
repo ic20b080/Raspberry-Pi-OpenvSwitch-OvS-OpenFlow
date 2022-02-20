@@ -69,7 +69,7 @@ ovsdb-tool create /usr/local/etc/openvswitch/conf.db vswitchd/vswitch.ovsschema
 ### Create Superscript:
 nano /etc/init.d/superscript
 
-**with following content:**
+**with following content (copy from the [raw version](https://raw.githubusercontent.com/ic20b080/Raspberry-Pi-OpenvSwitch-OvS-OpenFlow/main/README.md) of the file):**
 
 #!/bin/bash
 
@@ -96,6 +96,8 @@ ovs-vsctl show
 ovs-vsctl add-br br0
 
 ### Add Ports:
+In this case four ports eth0-3:
+
 ovs-vsctl add-port br0 eth0
 
 ovs-vsctl add-port br0 eth1
@@ -113,12 +115,12 @@ I had an IP-Address assigned on eth0:
 ifconfig eth0 0
 
 ### Add IP-Address to br0 bridge interface:
-I have an 192.168.1.x network
+In this case an 192.168.1.x network
 
 ifconfig br0 192.168.1.99 netmask 255.255.255.0 up
 
 ### Setup routes
-I have an 192.168.1.x network therefor I need these routes
+In this case an 192.168.1.x network therefore I need these routes
 
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
@@ -127,15 +129,12 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 br0
 
 
-I only had the second route so I added the other with
-
 route add -net 0.0.0.0 gw 192.168.1.1 netmask 0.0.0.0 dev br0
 
 ### Add Controller:
 ovs-vsctl set-controller br0 tcp:192.168.1.110:6633
 
-I had to set a specific OpenFlow Version
-
+Specify OpenFlow Version (10-15):
 ovs-vsctl set bridge br0 protocols=OpenFlow10
 
 
